@@ -1,0 +1,1 @@
+this is an example just to learn react-testing, testing all its components , reduc thunks , reducers , action creators and props as well 
