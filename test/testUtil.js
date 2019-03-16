@@ -1,5 +1,12 @@
 
 import checkPropTypes from 'check-prop-types';
+import {createStore } from 'redux';
+
+import rootReducer from '../src/reducers';
+
+//firstly we have imported create store and rootreducer ,
+//now we will create a store factory
+
 
 export const findByTestAttr = (wrapper , val) => {
    return wrapper.find(`[data-test="${val}"]`)
@@ -15,4 +22,7 @@ export const checkProps = (component , conformingProps) => {
         component.name
     );
     expect(propError).toBeUndefined();
+}
+export const storefactory = (initialState) =>{
+    return createStore(rootReducer,initialState);
 }
