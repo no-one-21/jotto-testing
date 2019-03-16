@@ -1,7 +1,7 @@
 
 import checkPropTypes from 'check-prop-types';
-import {createStore } from 'redux';
-
+import {createStore, applyMiddleware } from 'redux';
+import {middlewares} from '../src/configureStore';
 import rootReducer from '../src/reducers';
 
 //firstly we have imported create store and rootreducer ,
@@ -24,5 +24,6 @@ export const checkProps = (component , conformingProps) => {
     expect(propError).toBeUndefined();
 }
 export const storefactory = (initialState) =>{
-    return createStore(rootReducer,initialState);
+    const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+    return createStoreWithMiddleware(rootReducer,initialState);
 }
